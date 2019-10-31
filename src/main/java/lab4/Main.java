@@ -12,7 +12,7 @@ import akka.stream.javadsl.Flow;
 
 import java.util.concurrent.CompletionStage;
 
-public class Main extends AllDirectives {
+public class HttpServerMinimalExampleTest extends AllDirectives {
 
     public static void main(String[] args) throws Exception {
         // boot up server using the route as defined below
