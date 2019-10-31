@@ -1,3 +1,4 @@
+package lab4;
 import akka.NotUsed;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.ConnectHttp;
@@ -12,7 +13,7 @@ import akka.stream.javadsl.Flow;
 
 import java.util.concurrent.CompletionStage;
 
-public class HttpServerMinimalExampleTest extends AllDirectives {
+public class Main extends AllDirectives {
 
     public static void main(String[] args) throws Exception {
         // boot up server using the route as defined below
@@ -22,7 +23,7 @@ public class HttpServerMinimalExampleTest extends AllDirectives {
         final ActorMaterializer materializer = ActorMaterializer.create(system);
 
         //In order to access all directives we need an instance where the routes are define.
-        HttpServerMinimalExampleTest app = new HttpServerMinimalExampleTest();
+        Main app = new Main();
 
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(routeFlow,
